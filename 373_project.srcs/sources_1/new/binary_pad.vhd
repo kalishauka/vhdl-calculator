@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 20.03.2022 16:05:53
+-- Create Date: 12.05.2022 10:02:43
 -- Design Name: 
--- Module Name: 4_to_1 multiplexer - Behavioral
+-- Module Name: binary_pad - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,7 +21,6 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,24 +31,16 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity my_multiplexer is
-    generic (N : integer := 8);
-    Port ( A, B, C, D : in STD_LOGIC_VECTOR (N downto 0);
-           Sel : in unsigned (1 downto 0);
-           X : out STD_LOGIC_VECTOR (N downto 0));
-end my_multiplexer;
+entity binary_pad is
+    Port ( sw_input : in STD_LOGIC_VECTOR(11 downto 0);
+    binary_out : out STD_LOGIC_VECTOR(23 downto 0));
+end binary_pad;
 
-architecture Behavioral of my_multiplexer is
+architecture Behavioral of binary_pad is
 
 begin
-    process(A, B, C, D, Sel)
-    begin
-    case Sel is 
-    when "00" => X <= A;
-    when "01" => X <= B;
-    when "10" => X <= C;
-    when "11" => X <= D;
-    when others => X <= D;
-    end case;
-    end process;
+    process(sw_input)
+        begin binary_out <= "000000000000" & sw_input;
+     end process;
+
 end Behavioral;

@@ -9,7 +9,7 @@ use IEEE.numeric_std.all;
 
 entity bin_to_bcd is
     generic (
-        BCD_SIZE : integer := 4; --! Length of BCD signal
+        BCD_SIZE : integer := 28; --! Length of BCD signal
         NUM_SIZE : integer := 24; --! Length of binary input
         NUM_SEGS : integer := 7;  --! Number of segments
         SEG_SIZE : integer := 4   --! Vector size for each segment

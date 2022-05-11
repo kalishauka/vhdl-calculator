@@ -8,7 +8,7 @@ use IEEE.std_logic_1164.all;
 entity bcd_blanker is
     generic (
         BCD_SIZE : integer := 28; --! Size of BCD input
-        NUM_SEGS : integer := 8;  --! Number of seven-segment displays
+        NUM_SEGS : integer := 7;  --! Number of seven-segment displays
         SEG_SIZE : integer := 4   --! Vector size for each segment
     );
     port (
