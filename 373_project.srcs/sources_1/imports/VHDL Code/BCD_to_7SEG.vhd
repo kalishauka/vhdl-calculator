@@ -35,7 +35,7 @@ begin
 				when "0111"	=> leds_out <= "0001111";
 				when "1000"	=> leds_out <= "0000000";
 				when "1001"	=> leds_out <= "0001100";
-				when others => leds_out <= "-------";
+				when others => leds_out <= "1111111";
 			end case;
 	end process my_seg_proc;
 

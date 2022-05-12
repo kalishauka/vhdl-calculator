@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "H:/373 Project/373_project/373_project.runs/synth_1/Main.tcl"
+  variable script "H:/ENEL373_group 25/group-25/373_project.runs/synth_1/Main.tcl"
   variable category "vivado_synth"
 }
 
@@ -71,14 +71,16 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-3
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {H:/373 Project/373_project/373_project.cache/wt} [current_project]
-set_property parent.project_path {H:/373 Project/373_project/373_project.xpr} [current_project]
+set_property webtalk.parent_dir {H:/ENEL373_group 25/group-25/373_project.cache/wt} [current_project]
+set_property parent.project_path {H:/ENEL373_group 25/group-25/373_project.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo {h:/373 Project/373_project/373_project.cache/ip} [current_project]
@@ -86,13 +88,14 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  {H:/373 Project/373_project/373_project.srcs/sources_1/imports/VHDL Code/BCD_to_7SEG.vhd}
-  {H:/373 Project/373_project/373_project.srcs/sources_1/new/Clock.vhd}
-  {H:/373 Project/373_project/373_project.srcs/sources_1/new/Counter.vhd}
-  {H:/373 Project/373_project/373_project.srcs/sources_1/new/multiplexer.vhd}
-  {H:/373 Project/373_project/373_project.srcs/sources_1/imports/VHDL Code/bcd_blanker.vhd}
-  {H:/373 Project/373_project/373_project.srcs/sources_1/imports/VHDL Code/bin_to_bcd.vhd}
-  {H:/373 Project/373_project/373_project.srcs/sources_1/new/Main.vhd}
+  {H:/ENEL373_group 25/group-25/373_project.srcs/sources_1/imports/VHDL Code/BCD_to_7SEG.vhd}
+  {H:/ENEL373_group 25/group-25/373_project.srcs/sources_1/new/Clock.vhd}
+  {H:/ENEL373_group 25/group-25/373_project.srcs/sources_1/new/Counter.vhd}
+  {H:/ENEL373_group 25/group-25/373_project.srcs/sources_1/new/multiplexer.vhd}
+  {H:/ENEL373_group 25/group-25/373_project.srcs/sources_1/new/binary_pad.vhd}
+  {H:/ENEL373_group 25/group-25/373_project.srcs/sources_1/imports/VHDL Code/bcd_blanker.vhd}
+  {H:/ENEL373_group 25/group-25/373_project.srcs/sources_1/imports/VHDL Code/bin_to_bcd.vhd}
+  {H:/ENEL373_group 25/group-25/373_project.srcs/sources_1/new/Main.vhd}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -103,8 +106,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{H:/373 Project/373_project/373_project.srcs/constrs_1/imports/VHDL Code/Nexys4DDR_Master.xdc}}
-set_property used_in_implementation false [get_files {{H:/373 Project/373_project/373_project.srcs/constrs_1/imports/VHDL Code/Nexys4DDR_Master.xdc}}]
+read_xdc {{H:/ENEL373_group 25/group-25/373_project.srcs/constrs_1/imports/VHDL Code/Nexys4DDR_Master.xdc}}
+set_property used_in_implementation false [get_files {{H:/ENEL373_group 25/group-25/373_project.srcs/constrs_1/imports/VHDL Code/Nexys4DDR_Master.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
