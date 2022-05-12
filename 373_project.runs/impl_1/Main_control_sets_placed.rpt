@@ -1,0 +1,88 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Thu May 12 12:40:28 2022
+| Host         : ELECTRO-27 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file Main_control_sets_placed.rpt
+| Design       : main
+| Device       : xc7a100t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    10 |
+|    Minimum number of control sets                        |    10 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    37 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    10 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     5 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     3 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              10 |            5 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              17 |            5 |
+| Yes          | No                    | No                     |              16 |            6 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             112 |           23 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+------------------------------------------------+------------------------------------------------+------------------+----------------+--------------+
+|     Clock Signal     |                  Enable Signal                 |                Set/Reset Signal                | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+------------------------------------------------+------------------------------------------------+------------------+----------------+--------------+
+|  clk_signal/CLK      |                                                |                                                |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | clk_and_sw_to_Bin/ready                        |                                                |                2 |              4 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | clk_and_sw_to_Bin/ready                        | clk_and_sw_to_Bin/bcd_buf_reg[4]_0             |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | clk_and_sw_to_Bin/ready                        | clk_and_sw_to_Bin/bcd_buf_reg[8]_0             |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | clk_and_sw_to_Bin/ready                        | clk_and_sw_to_Bin/ready_reg_0                  |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                                                |                                                |                4 |              6 |         1.50 |
+|  CLK100MHZ_IBUF_BUFG | clk_and_sw_to_Bin/count[31]_i_2_n_0            |                                                |                4 |             12 |         3.00 |
+|  CLK100MHZ_IBUF_BUFG |                                                | clk_signal/count[17]_i_1_n_0                   |                5 |             17 |         3.40 |
+|  CLK100MHZ_IBUF_BUFG | clk_and_sw_to_Bin/FSM_onehot_state_reg_n_0_[2] | clk_and_sw_to_Bin/FSM_onehot_state_reg_n_0_[0] |                5 |             28 |         5.60 |
+|  CLK100MHZ_IBUF_BUFG | clk_and_sw_to_Bin/count[31]_i_2_n_0            | clk_and_sw_to_Bin/count[31]_i_1_n_0            |               15 |             72 |         4.80 |
++----------------------+------------------------------------------------+------------------------------------------------+------------------+----------------+--------------+
+
+

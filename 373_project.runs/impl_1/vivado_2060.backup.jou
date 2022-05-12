@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Thu May 12 12:20:43 2022
+# Process ID: 2060
+# Current directory: H:/ENEL373_group 25/group-25/373_project.runs/impl_1
+# Command line: vivado.exe -log Main.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Main.tcl -notrace
+# Log file: H:/ENEL373_group 25/group-25/373_project.runs/impl_1/Main.vdi
+# Journal file: H:/ENEL373_group 25/group-25/373_project.runs/impl_1\vivado.jou
+# Running On: ELECTRO-27, OS: Windows, CPU Frequency: 3408 MHz, CPU Physical cores: 4, Host memory: 8463 MB
+#-----------------------------------------------------------
+source Main.tcl -notrace
