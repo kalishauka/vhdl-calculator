@@ -3,11 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.   -->
 
-<<<<<<< HEAD
 <Project Version="7" Minor="56" Path="H:/ENEL373_group 25/group-25/373_project.xpr">
-=======
-<Project Version="7" Minor="56" Path="C:/Users/kalis/ENEL373/group-25/373_project.xpr">
->>>>>>> 653327baf74db140f7b3c905f57f46e2fb3dc3eb
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="b2778e6eb024427a8c8e335bbe3ccd85"/>
