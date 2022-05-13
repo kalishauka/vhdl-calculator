@@ -36,7 +36,9 @@ entity main is
     Port ( SW : in STD_LOGIC_VECTOR (11 downto 0);
            CA : out STD_LOGIC_VECTOR (0 to 6);
            AN : out STD_LOGIC_VECTOR (7 downto 0);
-           CLK100MHZ : in std_logic);
+           CLK100MHZ : in std_logic;
+           LED : out std_logic_vector (1 downto 0);
+           BTNC : in std_logic);
 end main;
 
 architecture Behavioral of Main is
@@ -91,9 +93,12 @@ component bin_to_bcd is
     );
 end component;
 
-
-
-
+component button_debouncer is
+     Port ( clock : in std_logic;
+           reset : in std_logic;
+           button_in : in std_logic; 
+           pulse_out : out std_logic );
+end component;
 
 begin
 
@@ -129,6 +134,9 @@ BCD_to_BCD_7: entity work.BCD_to_7SEG
 port map (bcd_in => BCD_2, leds_out => CA);
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 SW_padding : entity work.binary_pad
-port map(sw_input => SW, binary_out => binary_24);   
+port map(sw_input => SW, binary_out => binary_24);  
+
+button_to_led : button_debouncer
+port map(clock => CLK100MHZ, reset => '0', button_in => BTNC, pulse_out => LED(1)); 
 
 end Behavioral;
